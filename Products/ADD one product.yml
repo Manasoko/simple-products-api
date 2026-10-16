@@ -1,0 +1,29 @@
+info:
+    name: ADD one product
+    type: http
+    seq: 1
+
+http:
+    method: POST
+    url: '{{host}}/products/'
+    body:
+        type: json
+        data: |-
+            {
+              "id": 40,
+              "title": "Digital Air Fryer 5.5L",
+              "price": 85000,
+              "image": "https://i.pinimg.com/736x/3f/52/b5/3f52b57d111dbc71cbd1bd302481e86f.jpg",
+              "ratings": 4.8,
+              "description": "A 5.5L digital air fryer with adjustable temperature and timer controls for quick and healthier cooking.",
+              "category": "Kitchen Appliances",
+              "brand": "HomeEase",
+              "discount": 10
+            }
+    auth: inherit
+
+settings:
+    encodeUrl: true
+    timeout: 0
+    followRedirects: true
+    maxRedirects: 5

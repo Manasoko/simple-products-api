@@ -1,0 +1,412 @@
+opencollection: 1.0.0
+
+info:
+    name: Products
+config:
+    proxy:
+        inherit: true
+        config:
+            protocol: http
+            hostname: ''
+            port: ''
+            auth:
+                username: ''
+                password: ''
+            bypassProxy: ''
+
+request:
+    variables:
+        - name: host
+          value: http://localhost:3000/api
+
+docs:
+    content: |+
+        Products API
+        Overview
+        The Products API is a RESTful service for managing a product catalog. It supports full CRUD operations — listing all products, fetching a single product by ID, creating new products, partially updating existing ones, and deleting them. The API is intended for internal use by front-end clients and back-end services that need to read or mutate product data.
+        Each product conforms to the following shape:
+        FieldTypeDescriptionid
+
+
+
+
+
+        number
+
+
+
+
+
+        Unique product identifier
+
+
+
+
+
+        title
+
+
+
+
+
+        string
+
+
+
+
+
+        Product display name
+
+
+
+
+
+        price
+
+
+
+
+
+        number
+
+
+
+
+
+        Price in the smallest currency unit (e.g. IDR)
+
+
+
+
+
+        image
+
+
+
+
+
+        string
+
+
+
+
+
+        URL to the product image
+
+
+
+
+
+        rating
+
+
+
+
+
+        number
+
+
+
+
+
+        Aggregate customer rating (0–5)
+
+
+
+
+
+        description
+
+
+
+
+
+        string
+
+
+
+
+
+        Long-form product description
+
+
+
+
+
+        category
+
+
+
+
+
+        string
+
+
+
+
+
+        Product category (e.g. Kitchen Appliances)
+
+
+
+
+
+        brand
+
+
+
+
+
+        string
+
+
+
+
+
+        Manufacturer or brand name
+
+
+
+
+
+        discount
+
+
+
+
+
+        number
+
+
+
+
+
+        Discount percentage (0–100)
+
+
+
+
+
+
+
+
+
+        Quick Start
+        The minimal flow to verify the API is working:
+        List all products — GET /api/products/ — confirms the server is up and returns the catalog.
+        Fetch one product — GET /api/products/1 — confirms single-resource lookup works.
+        Create a product — POST /api/products/ with a JSON body — confirms write access.
+
+
+
+        Plain Text
+
+
+
+
+
+
+
+
+        GET http://localhost:3000/api/products/
+
+
+        A 200 OK with a JSON array means the service is healthy.
+
+
+
+        Authentication
+        No authentication is currently configured on this collection. All requests inherit auth from the collection level, which is set to No Auth. If the API is secured in a future environment, add a Bearer token or API key at the collection level and reference it as {{api_key}} in the Authorization header:
+
+
+        Plain Text
+
+
+
+
+
+
+
+
+        Authorization: Bearer {{api_key}}
+
+
+        Never paste real tokens into the collection — store them as secret variables in the active environment.
+
+
+
+        Environments
+        Two environments are available in this workspace (env). Before running requests, select the appropriate environment from the environment picker in the top-right corner of Postman.
+        Use one environment for local development (base URL: http://localhost:3000).
+        Use a separate environment for staging or production with the deployed base URL.
+
+        Consider extracting the base URL into an environment variable (e.g. {{base_url}}) and updating all request URLs to use {{base_url}}/api/products/ so you can switch targets without editing individual requests.
+        Tip: Mark any sensitive values (tokens, secrets) as Secret in the environment editor so they are not synced to the cloud in plain text.
+
+
+
+        Endpoints at a Glance
+        MethodPathPurposeGET
+
+
+
+
+
+        /api/products/
+
+
+
+
+
+        List all products
+
+
+
+
+
+        GET
+
+
+
+
+
+        /api/products/:id
+
+
+
+
+
+        Get a single product by ID
+
+
+
+
+
+        POST
+
+
+
+
+
+        /api/products/
+
+
+
+
+
+        Create a new product
+
+
+
+
+
+        PATCH
+
+
+
+
+
+        /api/products/:id
+
+
+
+
+
+        Partially update a product
+
+
+
+
+
+        DELETE
+
+
+
+
+
+        /api/products/:id
+
+
+
+
+
+        Delete a product
+
+
+
+
+
+
+
+
+
+        Ownership
+        FieldValueOwner
+
+
+
+
+
+        Mana
+
+
+
+
+
+        Workspace
+
+
+
+
+
+        My Workspace
+
+
+
+
+
+        Base URL
+
+
+
+
+
+        http://localhost:3000
+
+
+
+
+
+        Status
+
+
+
+
+
+        Active (local development)
+
+
+
+
+
+
+        For questions or issues, contact the workspace admin or open a discussion in the workspace.
+
+
+
+        Change Management
+        This collection targets a locally-running server. Breaking changes to the API (e.g. renamed fields, removed endpoints, changed status codes) should be:
+        Reflected in the request bodies and URLs in this collection.
+        Noted in the collection description or a linked workspace document.
+        Communicated to any consumers before deployment to shared environments.
+
+        If the API is versioned (e.g. /api/v2/products/), create a separate collection or folder per version rather than overwriting existing requests.
+
+
+    type: text/markdown
+bundled: false
+extensions:
+    bruno:
+        ignore:
+            - node_modules
+            - .git

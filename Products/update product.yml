@@ -1,0 +1,22 @@
+info:
+    name: update product
+    type: http
+    seq: 1
+
+http:
+    method: PATCH
+    url: '{{host}}/products/40'
+    body:
+        type: json
+        data: |-
+            {
+                "title": "Digital Rice Cooker 2.8L",
+                "price": 80000
+            }
+    auth: inherit
+
+settings:
+    encodeUrl: true
+    timeout: 0
+    followRedirects: true
+    maxRedirects: 5
